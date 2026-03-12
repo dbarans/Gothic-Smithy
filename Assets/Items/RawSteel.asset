@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c6a520456a9b2f42ba0388bfeb63dc3, type: 3}
+  m_Name: RawSteel
+  m_EditorClassIdentifier: Assembly-CSharp::Smithy.Data.ItemData
+  itemName: Raw Steel
+  icon: {fileID: 21300000, guid: bf12003facc05134db68f2d88d0c3567, type: 3}
+  stats:
+  - label: Weight
+    value: 2
+  - label: Value
+    value: 40
