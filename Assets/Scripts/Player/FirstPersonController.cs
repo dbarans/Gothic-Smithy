@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 using Smithy.Core;
 
 namespace Smithy.Player
@@ -14,6 +15,7 @@ namespace Smithy.Player
         [SerializeField] private float interactRange = 3f;
         [SerializeField] private LayerMask interactLayerMask = -1;
         [SerializeField] private Transform cameraHolder;
+        [SerializeField] private TMP_Text promptText;
 
         private CharacterController _controller;
         private Vector2 _moveInput;
@@ -21,6 +23,7 @@ namespace Smithy.Player
         private float _pitch;
         private InputAction _moveAction;
         private InputAction _lookAction;
+        private bool _movementAndLookEnabled = true;
 
         private void Awake()
         {
@@ -50,9 +53,51 @@ namespace Smithy.Player
             if (_moveAction != null) _moveInput = _moveAction.ReadValue<Vector2>();
             if (_lookAction != null) _lookInput = _lookAction.ReadValue<Vector2>();
 
-            Move();
-            Look();
-            TryInteract();
+            if (_movementAndLookEnabled)
+            {
+                Move();
+                Look();
+                UpdatePrompt();
+                TryInteract();
+            }
+            else if (promptText != null)
+            {
+                promptText.gameObject.SetActive(false);
+            }
+        }
+
+        private void UpdatePrompt()
+        {
+            if (promptText == null) return;
+            if (cameraHolder == null)
+            {
+                promptText.gameObject.SetActive(false);
+                return;
+            }
+            var ray = new Ray(cameraHolder.position, cameraHolder.forward);
+            if (Physics.Raycast(ray, out var hit, interactRange, interactLayerMask))
+            {
+                var interactable = hit.collider.GetComponentInParent<IInteractable>();
+                if (interactable != null)
+                {
+                    string text = interactable.GetPromptText();
+                    if (!string.IsNullOrEmpty(text))
+                    {
+                        promptText.text = text;
+                        promptText.gameObject.SetActive(true);
+                        return;
+                    }
+                }
+            }
+            promptText.gameObject.SetActive(false);
+        }
+
+        public void SetMovementAndLookEnabled(bool enabled) => _movementAndLookEnabled = enabled;
+
+        public void SetCursorVisible(bool visible)
+        {
+            Cursor.visible = visible;
+            Cursor.lockState = visible ? CursorLockMode.None : CursorLockMode.Locked;
         }
 
         private void Move()

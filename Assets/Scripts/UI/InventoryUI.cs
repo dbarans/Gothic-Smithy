@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 using Smithy.Core;
 using Smithy.Crafting;
+using Smithy.Data;
 
 namespace Smithy.UI
 {
@@ -9,11 +11,18 @@ namespace Smithy.UI
     {
         [SerializeField] private CraftingManager craftingManager;
         [SerializeField] private GameObject panelRoot;
-        [SerializeField] private TMP_Text listText;
+        [SerializeField] private Transform content;
+        [SerializeField] private GameObject slotPrefab;
         [SerializeField] private float refreshInterval = 0.15f;
 
         private IInventory _inventory;
         private float _nextRefresh;
+        private readonly List<GameObject> _spawnedSlots = new List<GameObject>();
+
+        private void Awake()
+        {
+            if (panelRoot != null) panelRoot.SetActive(false);
+        }
 
         private void Start()
         {
@@ -28,7 +37,7 @@ namespace Smithy.UI
 
         private void Update()
         {
-            if (_inventory == null || listText == null) return;
+            if (_inventory == null) return;
             if (Time.time < _nextRefresh) return;
             _nextRefresh = Time.time + refreshInterval;
             Refresh();
@@ -39,24 +48,41 @@ namespace Smithy.UI
             _nextRefresh = 0f;
         }
 
+        private void ClearSlots()
+        {
+            foreach (var go in _spawnedSlots)
+            {
+                if (go != null) Destroy(go);
+            }
+            _spawnedSlots.Clear();
+        }
+
         public void Refresh()
         {
-            if (listText == null) return;
+            if (content == null || slotPrefab == null)
+                return;
             if (_inventory == null)
             {
-                listText.text = "—";
+                ClearSlots();
                 return;
             }
-            var items = _inventory.Items;
-            if (items.Count == 0)
+
+            var counts = new Dictionary<ItemData, int>();
+            foreach (var item in _inventory.Items)
             {
-                listText.text = "(empty)";
-                return;
+                if (item == null) continue;
+                counts[item] = counts.GetValueOrDefault(item, 0) + 1;
             }
-            var lines = new System.Collections.Generic.List<string>();
-            foreach (var item in items)
-                lines.Add(item != null ? item.itemName : "?");
-            listText.text = string.Join("\n", lines);
+
+            ClearSlots();
+            foreach (var kv in counts)
+            {
+                var row = Instantiate(slotPrefab, content);
+                _spawnedSlots.Add(row);
+                var slot = row.GetComponent<RequiredIngredientRow>();
+                if (slot != null)
+                    slot.Setup(kv.Key, kv.Value);
+            }
         }
 
         public void Show() { if (panelRoot != null) panelRoot.SetActive(true); }

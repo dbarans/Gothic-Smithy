@@ -16,7 +16,7 @@ namespace Smithy.Data
     {
         public const int StatsCount = 5;
 
-        public string itemName = "Item";
+        public string itemName = "Przedmiot";
         public Sprite icon;
         [SerializeField] private ItemStat[] stats = new ItemStat[StatsCount];
 
