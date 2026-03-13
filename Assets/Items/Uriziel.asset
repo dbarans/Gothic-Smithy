@@ -10,10 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c6a520456a9b2f42ba0388bfeb63dc3, type: 3}
-  m_Name: HotSteel
+  m_Name: Uriziel
   m_EditorClassIdentifier: Assembly-CSharp::Smithy.Data.ItemData
-  itemName: HotSteel
-  icon: {fileID: 21300000, guid: 518ec730ff48c414d9de27122b28c937, type: 3}
+  itemName: Uriziel
+  icon: {fileID: 21300000, guid: 3125db224d6297740ae973774a5a27a2, type: 3}
   stats:
+  - label: "Si\u0142a"
+    value: 30
+  - label: "Obra\u017Cenia od magii"
+    value: 120
+  - label: "Obra\u017Cenia od ognia"
+    value: 30
   - label: "Warto\u015B\u0107"
-    value: 51
+    value: 10000
+  - label: Waga
+    value: 50

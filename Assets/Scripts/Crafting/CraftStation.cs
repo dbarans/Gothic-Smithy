@@ -8,58 +8,59 @@ using Smithy.UI;
 
 namespace Smithy.Crafting
 {
-    public class FurnaceStation : MonoBehaviour, IInteractable
+    public class CraftStation : MonoBehaviour, IInteractable
     {
+        [SerializeField]
+        private string stationPrompt = "E - Stacja";
+        [SerializeField] private float craftDuration = 2f;
+        [SerializeField] private Slider progressSlider;
+        [SerializeField] private GameObject progressUI;
         [SerializeField] private List<RecipeData> recipes = new List<RecipeData>();
         [SerializeField] private CraftingManager craftingManager;
         [SerializeField] private CraftingStationUI craftingUI;
         [SerializeField] private InventoryUI inventoryUI;
-        [SerializeField] private float heatingDuration = 3f;
-        [SerializeField] private Slider progressSlider;
-        [SerializeField] private GameObject progressUI;
 
-        private bool _isHeating;
+        private bool _isCrafting;
         private ItemData _outputToGive;
 
-        public string GetPromptText() => "[E] - Piec";
+        public virtual string GetPromptText() => string.IsNullOrEmpty(stationPrompt) ? "E - Stacja" : stationPrompt;
 
-        public void Interact(InteractContext context)
+        public virtual void Interact(InteractContext context)
         {
-            if (_isHeating) return;
-            if (craftingUI != null && craftingManager != null)
+            if (_isCrafting) return;
+            if (craftingManager == null) return;
+            var inv = craftingManager.PlayerInventory;
+            if (inv == null) return;
+            if (craftingUI != null)
             {
                 var playerCtrl = context.Player != null ? context.Player.GetComponent<Smithy.Player.FirstPersonController>() : null;
                 craftingUI.Show(recipes, TryStartCraft, playerCtrl);
                 if (inventoryUI != null) inventoryUI.Show();
             }
-            else if (craftingManager != null)
-            {
-                var playerInv = craftingManager.PlayerInventory;
-                if (playerInv != null) StartCoroutine(TakeAndHeatFirst(playerInv));
-            }
         }
 
         public bool TryStartCraft(RecipeData recipe, IInventory playerInv)
         {
-            if (recipe == null || recipe.outputItem == null || playerInv == null || _isHeating) return false;
+            if (recipe == null || recipe.outputItem == null || playerInv == null || _isCrafting) return false;
             if (!CraftingManager.HasAllIngredients(recipe, playerInv)) return false;
             CraftingManager.ConsumeIngredients(recipe, playerInv);
             _outputToGive = recipe.outputItem;
-            _isHeating = true;
-            StartCoroutine(HeatCurrentItem(playerInv));
+            _isCrafting = true;
+            StartCoroutine(RunCraftProgress(playerInv));
             return true;
         }
 
-        private IEnumerator HeatCurrentItem(IInventory playerInv)
+        private IEnumerator RunCraftProgress(IInventory playerInv)
         {
+            float duration = Mathf.Max(0.01f, craftDuration);
             if (progressSlider != null) progressSlider.value = 0f;
             if (progressUI != null) progressUI.SetActive(true);
 
             float t = 0f;
-            while (t < heatingDuration)
+            while (t < duration)
             {
                 t += Time.deltaTime;
-                if (progressSlider != null) progressSlider.value = t / heatingDuration;
+                if (progressSlider != null) progressSlider.value = t / duration;
                 yield return null;
             }
 
@@ -68,17 +69,7 @@ namespace Smithy.Crafting
             if (_outputToGive != null && playerInv != null)
                 playerInv.AddItem(_outputToGive);
             _outputToGive = null;
-            _isHeating = false;
-        }
-
-        private IEnumerator TakeAndHeatFirst(IInventory playerInv)
-        {
-            var recipe = CraftingManager.GetFirstCraftable(recipes, playerInv);
-            if (recipe == null) yield break;
-            CraftingManager.ConsumeIngredients(recipe, playerInv);
-            _outputToGive = recipe.outputItem;
-            _isHeating = true;
-            yield return HeatCurrentItem(playerInv);
+            _isCrafting = false;
         }
     }
 }

@@ -10,11 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8894ef9ec93c4a48b17c3a0f9913ce3, type: 3}
-  m_Name: Recipe_Testsword
+  m_Name: Glowing_blade
   m_EditorClassIdentifier: Assembly-CSharp::Smithy.Data.RecipeData
   ingredients:
   - item: {fileID: 11400000, guid: 96baf9b188c6a3143808112d44d48792, type: 2}
     count: 1
-  - item: {fileID: 11400000, guid: bc36ad8271517da4284e99c6bd5205a4, type: 2}
-    count: 2
-  outputItem: {fileID: 11400000, guid: f373fbde89744774b9fb15e149f0c518, type: 2}
+  outputItem: {fileID: 11400000, guid: f59efe5670da35b418f4794ddef01d93, type: 2}

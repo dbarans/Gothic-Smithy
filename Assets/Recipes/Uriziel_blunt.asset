@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8894ef9ec93c4a48b17c3a0f9913ce3, type: 3}
+  m_Name: Uriziel_blunt
+  m_EditorClassIdentifier: Assembly-CSharp::Smithy.Data.RecipeData
+  ingredients:
+  - item: {fileID: 11400000, guid: 583149c444dcd084ca7a0eb92ab26ade, type: 2}
+    count: 1
+  - item: {fileID: 11400000, guid: 47b0741f20443c6459244ca142edb80f, type: 2}
+    count: 200
+  outputItem: {fileID: 11400000, guid: e4c4531f811c5384aaf12a56fe186139, type: 2}

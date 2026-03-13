@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8894ef9ec93c4a48b17c3a0f9913ce3, type: 3}
-  m_Name: Recipe_HotSteel
+  m_Name: Uriziel
   m_EditorClassIdentifier: Assembly-CSharp::Smithy.Data.RecipeData
   ingredients:
-  - item: {fileID: 11400000, guid: bc36ad8271517da4284e99c6bd5205a4, type: 2}
+  - item: {fileID: 11400000, guid: e4c4531f811c5384aaf12a56fe186139, type: 2}
     count: 1
-  outputItem: {fileID: 11400000, guid: 96baf9b188c6a3143808112d44d48792, type: 2}
+  outputItem: {fileID: 11400000, guid: c66b08665e4273646ab447b61584092b, type: 2}

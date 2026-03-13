@@ -15,7 +15,5 @@ MonoBehaviour:
   itemName: Raw Steel
   icon: {fileID: 21300000, guid: bf12003facc05134db68f2d88d0c3567, type: 3}
   stats:
-  - label: Weight
-    value: 2
-  - label: Value
+  - label: "Warto\u015B\u0107"
     value: 40

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8894ef9ec93c4a48b17c3a0f9913ce3, type: 3}
+  m_Name: Ulu-Mulu
+  m_EditorClassIdentifier: Assembly-CSharp::Smithy.Data.RecipeData
+  ingredients:
+  - item: {fileID: 11400000, guid: f519f46ad59cd3546938a54d3485d3f9, type: 2}
+    count: 1
+  - item: {fileID: 11400000, guid: 579f2754d723f2547b91c1bc656e7c12, type: 2}
+    count: 1
+  - item: {fileID: 11400000, guid: 1372943d4f074d9498b219b6176bc681, type: 2}
+    count: 1
+  - item: {fileID: 11400000, guid: b786164c4814335428a514fd6186bb1f, type: 2}
+    count: 1
+  outputItem: {fileID: 11400000, guid: 15863fb84a61130439ae6407764f10ec, type: 2}
