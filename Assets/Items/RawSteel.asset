@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6a520456a9b2f42ba0388bfeb63dc3, type: 3}
   m_Name: RawSteel
   m_EditorClassIdentifier: Assembly-CSharp::Smithy.Data.ItemData
-  itemName: Surowa stal
   icon: {fileID: 21300000, guid: bf12003facc05134db68f2d88d0c3567, type: 3}
-  stats:
-  - label: Wartosc
-    value: 40
+  itemName: Surowa stal
+  strength: 0
+  damage: 0
+  fireDamage: 0
+  magicDamage: 0
+  value: 40

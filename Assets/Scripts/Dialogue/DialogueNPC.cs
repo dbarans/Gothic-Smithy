@@ -32,7 +32,7 @@ namespace Smithy.Dialogue
         [SerializeField] private float defaultDuration = 3f;
         [SerializeField] private float pauseBetweenLines;
 
-        public string GetPromptText() => "Rozmawiaj";
+        public string GetPromptText() => npcDisplayName;
 
         public void Interact(InteractContext context)
         {

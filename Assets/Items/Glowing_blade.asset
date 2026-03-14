@@ -12,16 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6a520456a9b2f42ba0388bfeb63dc3, type: 3}
   m_Name: Glowing_blade
   m_EditorClassIdentifier: Assembly-CSharp::Smithy.Data.ItemData
-  itemName: Rozgrzane ostrze
   icon: {fileID: 21300000, guid: ccd4b8842906f404685801ab25c0ee5d, type: 3}
-  stats:
-  - label: Wartosc
-    value: 64
-  - label: 
-    value: 0
-  - label: 
-    value: 0
-  - label: 
-    value: 0
-  - label: 
-    value: 0
+  itemName: Rozgrzane ostrze
+  strength: 0
+  damage: 0
+  fireDamage: 0
+  magicDamage: 0
+  value: 64

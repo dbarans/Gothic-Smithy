@@ -12,16 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6a520456a9b2f42ba0388bfeb63dc3, type: 3}
   m_Name: Ulu-Mulu
   m_EditorClassIdentifier: Assembly-CSharp::Smithy.Data.ItemData
-  itemName: Ulu_Mulu
   icon: {fileID: 21300000, guid: 19f784e5df0ee3d4da2b68b1bf431163, type: 3}
-  stats:
-  - label: Sila
-    value: 30
-  - label: Obrazenia
-    value: 35
-  - label: Typ
-    value: Bron dwureczna
-  - label: Wartosc
-    value: 1000
-  - label: Waga
-    value: 20
+  itemName: Ulu-Mulu
+  strength: 30
+  damage: 35
+  fireDamage: 0
+  magicDamage: 0
+  value: 1000
