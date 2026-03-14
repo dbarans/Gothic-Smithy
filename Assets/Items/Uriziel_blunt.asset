@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: "Uriziel (t\u0119py)"
   icon: {fileID: 21300000, guid: 3125db224d6297740ae973774a5a27a2, type: 3}
   stats:
-  - label: "Warto\u015B\u0107"
+  - label: Wartosc
     value: 1000
   - label: Waga
     value: 50

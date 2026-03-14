@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: "J\u0119zyk ognistego jaszczura"
   icon: {fileID: 21300000, guid: 693ac2e7d734fe2499e7f6265edd0c2a, type: 3}
   stats:
-  - label: "Warto\u015B\u0107"
+  - label: Wartosc
     value: 500

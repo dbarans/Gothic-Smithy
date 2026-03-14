@@ -10,10 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6c6a520456a9b2f42ba0388bfeb63dc3, type: 3}
-  m_Name: Teeth of a Swampsha
+  m_Name: Crude Sword
   m_EditorClassIdentifier: Assembly-CSharp::Smithy.Data.ItemData
-  itemName: "K\u0142y b\u0142otnego w\u0119\u017Ca"
-  icon: {fileID: 21300000, guid: 86cfd4e0e30e4804e8fc181cbc3dbf4c, type: 3}
+  itemName: Niewykonczony miecz
+  icon: {fileID: 21300000, guid: 62eda98335ad5824db4cf186a6510d2e, type: 3}
   stats:
+  - label: Sila
+    value: 20
+  - label: Obrazenia
+    value: 20
+  - label: Typ
+    value: Miecz jednoreczny
+  - label: Waga
+    value: 40
   - label: Wartosc
-    value: 500
+    value: 100

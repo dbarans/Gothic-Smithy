@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Uriziel
   m_EditorClassIdentifier: Assembly-CSharp::Smithy.Data.RecipeData
   ingredients:
-  - item: {fileID: 11400000, guid: e4c4531f811c5384aaf12a56fe186139, type: 2}
+  - item: {fileID: 11400000, guid: 824421d79efe0774fb9acce1b7ffc7af, type: 2}
     count: 1
+  - item: {fileID: 11400000, guid: 47b0741f20443c6459244ca142edb80f, type: 2}
+    count: 200
   outputItem: {fileID: 11400000, guid: c66b08665e4273646ab447b61584092b, type: 2}

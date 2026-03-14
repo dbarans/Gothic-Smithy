@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: "Bry\u0142ka rudy"
   icon: {fileID: 21300000, guid: a7202140762f2634ab419ce4707d77f1, type: 3}
   stats:
-  - label: "Warto\u015B\u0107"
+  - label: Wartosc
     value: 1

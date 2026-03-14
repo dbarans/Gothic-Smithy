@@ -11,8 +11,10 @@ namespace Smithy.Crafting
     public class CraftStation : MonoBehaviour, IInteractable
     {
         [SerializeField]
-        private string stationPrompt = "E - Stacja";
-        [SerializeField] private float craftDuration = 2f;
+        private string stationPrompt;
+        [SerializeField] private float craftDurationFallback = 2f;
+        [SerializeField] private List<AudioClip> craftSounds = new List<AudioClip>();
+        [SerializeField] private AudioSource audioSource;
         [SerializeField] private Slider progressSlider;
         [SerializeField] private GameObject progressUI;
         [SerializeField] private List<RecipeData> recipes = new List<RecipeData>();
@@ -23,7 +25,7 @@ namespace Smithy.Crafting
         private bool _isCrafting;
         private ItemData _outputToGive;
 
-        public virtual string GetPromptText() => string.IsNullOrEmpty(stationPrompt) ? "E - Stacja" : stationPrompt;
+        public virtual string GetPromptText() => string.IsNullOrEmpty(stationPrompt) ? "" : stationPrompt;
 
         public virtual void Interact(InteractContext context)
         {
@@ -52,15 +54,31 @@ namespace Smithy.Crafting
 
         private IEnumerator RunCraftProgress(IInventory playerInv)
         {
-            float duration = Mathf.Max(0.01f, craftDuration);
+            float duration = GetCraftDuration();
             if (progressSlider != null) progressSlider.value = 0f;
             if (progressUI != null) progressUI.SetActive(true);
+
+            var source = audioSource != null ? audioSource : GetComponent<AudioSource>();
+            int soundIndex = 0;
+            float nextSoundTime = 0f;
 
             float t = 0f;
             while (t < duration)
             {
                 t += Time.deltaTime;
                 if (progressSlider != null) progressSlider.value = t / duration;
+
+                if (source != null && craftSounds != null && soundIndex < craftSounds.Count && t >= nextSoundTime)
+                {
+                    AudioClip clip = craftSounds[soundIndex];
+                    if (clip != null)
+                    {
+                        source.PlayOneShot(clip);
+                        nextSoundTime += clip.length;
+                    }
+                    soundIndex++;
+                }
+
                 yield return null;
             }
 
@@ -70,6 +88,19 @@ namespace Smithy.Crafting
                 playerInv.AddItem(_outputToGive);
             _outputToGive = null;
             _isCrafting = false;
+        }
+
+        private float GetCraftDuration()
+        {
+            if (craftSounds != null && craftSounds.Count > 0)
+            {
+                float total = 0f;
+                foreach (var clip in craftSounds)
+                    if (clip != null)
+                        total += clip.length;
+                if (total > 0f) return total;
+            }
+            return Mathf.Max(0.01f, craftDurationFallback);
         }
     }
 }

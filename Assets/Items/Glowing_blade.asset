@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: Rozgrzane ostrze
   icon: {fileID: 21300000, guid: ccd4b8842906f404685801ab25c0ee5d, type: 3}
   stats:
-  - label: "Warto\u015B\u0107"
+  - label: Wartosc
     value: 64
   - label: 
     value: 0

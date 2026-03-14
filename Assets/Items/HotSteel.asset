@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c6a520456a9b2f42ba0388bfeb63dc3, type: 3}
   m_Name: HotSteel
   m_EditorClassIdentifier: Assembly-CSharp::Smithy.Data.ItemData
-  itemName: HotSteel
+  itemName: Rozgrzana stal
   icon: {fileID: 21300000, guid: 518ec730ff48c414d9de27122b28c937, type: 3}
   stats:
-  - label: "Warto\u015B\u0107"
+  - label: Wartosc
     value: 51

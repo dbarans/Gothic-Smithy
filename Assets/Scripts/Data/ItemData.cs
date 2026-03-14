@@ -8,7 +8,7 @@ namespace Smithy.Data
     public struct ItemStat
     {
         public string label;
-        public float value;
+        public string value;
     }
 
     [CreateAssetMenu(fileName = "New Item", menuName = "Smithy/Item Data")]
@@ -16,13 +16,13 @@ namespace Smithy.Data
     {
         public const int StatsCount = 5;
 
-        public string itemName = "Przedmiot";
+        public string itemName;
         public Sprite icon;
         [SerializeField] private ItemStat[] stats = new ItemStat[StatsCount];
 
-        public IReadOnlyList<(string label, float value)> GetDisplayStats()
+        public IReadOnlyList<(string label, string value)> GetDisplayStats()
         {
-            var list = new List<(string, float)>();
+            var list = new List<(string, string)>();
             if (stats == null) return list;
             foreach (var s in stats)
             {

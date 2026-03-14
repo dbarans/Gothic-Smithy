@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: "Kie\u0142 trolla"
   icon: {fileID: 21300000, guid: a0645d88f57aeba4d96947f9fcf2b3cb, type: 3}
   stats:
-  - label: "Warto\u015B\u0107"
+  - label: Wartosc
     value: 500

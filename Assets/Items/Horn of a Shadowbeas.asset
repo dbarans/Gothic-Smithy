@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: Przedmiot
   icon: {fileID: 21300000, guid: 19e07f086e23b7d41ad3ed70d3dc5867, type: 3}
   stats:
-  - label: "Warto\u015B\u0107"
+  - label: Wartosc
     value: 500
