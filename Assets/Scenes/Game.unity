@@ -18080,7 +18080,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8565881177454849497, guid: 61008b7a55ea936439e43d1ddcd41c75, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.47
+      value: 10.602
       objectReference: {fileID: 0}
     - target: {fileID: 8565881177454849497, guid: 61008b7a55ea936439e43d1ddcd41c75, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18121,8 +18121,37 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8419277812577077665, guid: 61008b7a55ea936439e43d1ddcd41c75, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1696063115}
   m_SourcePrefab: {fileID: 100100000, guid: 61008b7a55ea936439e43d1ddcd41c75, type: 3}
+--- !u!1 &1696063114 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8419277812577077665, guid: 61008b7a55ea936439e43d1ddcd41c75, type: 3}
+  m_PrefabInstance: {fileID: 1696063113}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1696063115
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696063114}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.07483, y: 0.7442532, z: 1.0594422}
+  m_Center: {x: -0.000019013882, y: 0.36970785, z: -0.00016194582}
 --- !u!4 &1696610265 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 436916, guid: 287711fb95cdc004b814e53a055b4b1e, type: 3}
@@ -19596,6 +19625,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 790aef9e41abc39439890f1d40bf092d, type: 2}
+    - target: {fileID: 734711871604651909, guid: ad8fe0235a8670d4c83f451033ac0a20, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 734711871604651909, guid: ad8fe0235a8670d4c83f451033ac0a20, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 20513688, guid: ad8fe0235a8670d4c83f451033ac0a20, type: 3}
     m_RemovedGameObjects:
