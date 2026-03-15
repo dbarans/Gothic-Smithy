@@ -21,7 +21,6 @@ namespace Smithy.UI
 
         [SerializeField] private TMP_Text valueValueText;
 
-        [Tooltip("Odstęp panelu od kursora (w pikselach)")]
         [SerializeField] private float marginFromCursor = 12f;
 
         private RectTransform _rect;
